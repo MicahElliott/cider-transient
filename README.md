@@ -8,15 +8,24 @@ transient menu.
 *Deps*: none! Transient is part of Emacs now
 
 There are very many [CIDER](https://github.com/clojure-emacs/cider) and
-clojure commands from `C-c ...' and then a series of more keypresses. This
-aims to collect all the most important ones into a single menu. It helps with
-memory, discoverability, and speed.
+clojure commands from `C-c ...` and then a series of more keypresses. Those
+are hard to remember and may have conflicts with other bindings. This project
+instead aims to collect all the most important ones into a single menu. It
+helps with memory, discoverability, and speed.
 
-The quick shortcut (key binding) I use is `CC`. This enables, eg, `CCtr` to do
-a single _test run_. Whereas, CIDER's default binding is `C-c C-t C-t`. OK,
-for this case CIDER's is actually better, but for a lot of cases,
-cider-transient is nice to have. I actually use CIDER's bindings frequently,
-but I find that there are too many of them buried too deep, and they clash
-with some others that like to define, so I'm considering removing all of them.
+## My Usage
 
+The quick shortcut (key-chord binding) I use is `xc`. This enables, eg, `xctt`
+to do a single _test run_. Note that he `xc` is just a single press really,
+since it's an order-independent key-chord. Compare this to CIDER's default
+binding: `C-c C-t C-t`. OK, for this case CIDER's is actually about the same
+speed-wise, but for a lot of cases, cider-transient is pretty nice to have.
+Out of habit, I actually still use CIDER's bindings sometimes, but I find that
+there are too many of them buried too deep, with some odd mnemonics, and some
+clash with some others that I like to define, so I'm considering removing all
+of the CIDER defaults.
+
+    ;; Safe and slow
     (key-chord-define-global "CC" 'cider-transient)
+    ;; OR faster, look out for "xc" in exceed
+    (key-chord-define-global "xc" 'cider-transient)
